@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account Management Console Application</title>
+</head>
+
+<body>
+
+    <script>
+
+        class BankAccount {
+
+            constructor(accountNumber, ownerName, balance) {
+                this.accountNumber = accountNumber;
+                this.ownerName = ownerName;
+                this.balance = balance;
+            }
+
+            // Deposit Amount Method
+            deposit(amount) {
+                this.balance += amount;
+                return `Deposit ${amount}. New Balance: ${this.balance}`;
+            }
+
+            // Withdraw Amount Method
+            withdraw(amount) {
+                if (amount <= this.balance) {
+                    this.balance -= amount;
+                    return `Withdraw ${amount}. New Balance: ${this.balance}`;
+                } else {
+                   return "Insufficient funds";
+                }
+            }
+
+            // GetBalance Amount Method
+            getBalance() {
+                return `Current Account Balance = ${this.balance}`;
+            }
+
+            //Display Account Informatioin
+            displayAccountInfo() {
+                return `Account Number: ${this.accountNumber}\nOwner Name: ${this.ownerName}\nBalance: ${this.balance}`;
+            }
+
+        }
+
+        const shamim = new BankAccount(123456, "Shamim Sheikh", 10000);
+        const abdullah = new BankAccount(756409, "Abdullah Nur", 15000);
+
+        console.log(`Account 1`);
+        console.log(shamim.displayAccountInfo());
+        console.log(shamim.deposit(2000));
+        console.log(shamim.withdraw(3000));
+        console.log(shamim.withdraw(20000));
+        console.log(shamim.getBalance());
+
+        console.log(`\n\nAccount 2`);
+        console.log(abdullah.displayAccountInfo());
+        console.log(abdullah.deposit(2000));
+        console.log(abdullah.withdraw(3000));
+        console.log(abdullah.withdraw(30000));
+        console.log(abdullah.getBalance());
+
+
+    </script>
+    
+
+</body>
+
+</html>
